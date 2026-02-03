@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AutoKelas Dashboard</title>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: #1e1e1e;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      width: 300px;
+      box-shadow: 0 0 20px rgba(0,255,0,0.3);
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .on {
+      background: #00c853;
+      color: black;
+    }
+
+    .off {
+      background: #d50000;
+      color: white;
+    }
+
+    .status {
+      margin-top: 15px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>AutoKelas Socket 1</h2>
+
+    <button class="on" onclick="sendON()">ON</button>
+    <button class="off" onclick="sendOFF()">OFF</button>
+
+    <div class="status">
+      Status: <span id="status">--</span>
+    </div>
+  </div>
+
+<script>
+  // ===== HiveMQ Cloud WebSocket =====
+  const options = {
+    username: "sfftsya",
+    password: "Tasya_0507",
+    clientId: "dashboard_" + Math.random().toString(16).substr(2, 8),
+    clean: true
+  };
+
+  const client = mqtt.connect(
+    "wss://178478c035b34dcfb27a2f6c1bf18591.s1.eu.hivemq.cloud:8884/mqtt",
+    options
+  );
+
+  client.on("connect", () => {
+    console.log("Connected to HiveMQ");
+    client.subscribe("autokelas/socket1/status");
+  });
+
+  client.on("message", (topic, message) => {
+    if (topic === "autokelas/socket1/status") {
+      document.getElementById("status").innerText = message.toString();
+    }
+  });
+
+  function sendON() {
+    client.publish("autokelas/socket1/cmd", "ON");
+  }
+
+  function sendOFF() {
+    client.publish("autokelas/socket1/cmd", "OFF");
+  }
+</script>
+
+</body>
+</html>
