@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AutoKelas Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>AutoKelas Dashboard</h1>
+
+    <div class="container">
+
+        <!-- eSoket -->
+        <div class="card">
+            <h2>eSoket 1</h2>
+            <button onclick="toggleDevice(this)">OFF</button>
+        </div>
+
+        <div class="card">
+            <h2>eSoket 2</h2>
+            <button onclick="toggleDevice(this)">OFF</button>
+        </div>
+
+        <!-- eLampu -->
+        <div class="card">
+            <h2>eLampu 1</h2>
+            <button onclick="toggleDevice(this)">OFF</button>
+        </div>
+
+        <div class="card">
+            <h2>eLampu 2</h2>
+            <button onclick="toggleDevice(this)">OFF</button>
+        </div>
+
+        <!-- RFID -->
+        <div class="card">
+            <h2>eKehadiran 1</h2>
+            <p id="rfid1">No Scan Yet</p>
+            <button onclick="simulateScan(1)">Simulate Scan</button>
+        </div>
+
+        <div class="card">
+            <h2>eKehadiran 2</h2>
+            <p id="rfid2">No Scan Yet</p>
+            <button onclick="simulateScan(2)">Simulate Scan</button>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
