@@ -1,52 +1,121 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AutoKelas Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>AutoKelas Dashboard</title>
+<link rel="stylesheet" href="style.css">
+
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
 </head>
+
 <body>
 
-    <h1>AutoKelas Dashboard</h1>
+<h1>AutoKelas Smart Classroom</h1>
 
-    <div class="container">
+<div class="container">
 
-        <!-- eSoket -->
-        <div class="card">
-            <h2>eSoket 1</h2>
-            <button onclick="toggleDevice(this)">OFF</button>
-        </div>
+<h2>eLampu</h2>
 
-        <div class="card">
-            <h2>eSoket 2</h2>
-            <button onclick="toggleDevice(this)">OFF</button>
-        </div>
+<div class="row">
 
-        <!-- eLampu -->
-        <div class="card">
-            <h2>eLampu 1</h2>
-            <button onclick="toggleDevice(this)">OFF</button>
-        </div>
+<div class="card">
+<h3>eLampu 1</h3>
 
-        <div class="card">
-            <h2>eLampu 2</h2>
-            <button onclick="toggleDevice(this)">OFF</button>
-        </div>
+<div class="status">
+<span id="lamp1dot" class="dot off"></span>
+<span id="lamp1text">OFF</span>
+</div>
 
-        <!-- RFID -->
-        <div class="card">
-            <h2>eKehadiran 1</h2>
-            <p id="rfid1">No Scan Yet</p>
-            <button onclick="simulateScan(1)">Simulate Scan</button>
-        </div>
+<button onclick="lamp1ON()">ON</button>
+<button onclick="lamp1OFF()">OFF</button>
 
-        <div class="card">
-            <h2>eKehadiran 2</h2>
-            <p id="rfid2">No Scan Yet</p>
-            <button onclick="simulateScan(2)">Simulate Scan</button>
-        </div>
+</div>
 
-    </div>
+<div class="card">
+<h3>eLampu 2</h3>
 
-    <script src="script.js"></script>
-</body>
-</html>
+<div class="status">
+<span id="lamp2dot" class="dot off"></span>
+<span id="lamp2text">OFF</span>
+</div>
+
+<button onclick="lamp2ON()">ON</button>
+<button onclick="lamp2OFF()">OFF</button>
+<p id="lamp2status">Status: Unknown</p>
+</div>
+
+</div>
+
+
+<h2>eSoket</h2>
+
+<div class="row">
+
+<div class="card">
+<h3>eSoket 1</h3>
+
+<span id="lamp2dot" class="dot off"></span>
+<span id="lamp2text">OFF</span>
+
+<button onclick="soket1ON()">ON</button>
+<button onclick="soket1OFF()">OFF</button>
+<p id="soket1status">Status: Unknown</p>
+</div>
+
+<div class="card">
+<h3>eSoket 2</h3>
+<span id="soket1dot" class="dot off"></span>
+<span id="soket1text">OFF</span>
+
+<button onclick="soket2ON()">ON</button>
+<button onclick="soket2OFF()">OFF</button>
+<p id="soket2status">Status: Unknown</p>
+</div>
+
+</div>
+
+
+<h2>eKehadiran</h2>
+
+<div class="row">
+
+<div class="attendanceCard">
+
+<h3>Reader 1</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Date</th>
+<th>Time</th>
+</tr>
+</thead>
+
+<tbody id="attendance1"></tbody>
+
+</table>
+
+</div>
+
+
+<div class="attendanceCard">
+
+<h3>Reader 2</h3>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Date</th>
+<th>Time</th>
+</tr>
+</thead>
+
+<tbody id="attendance2"></tbody>
+
+</table>
+
+</div>
+
+</div>
