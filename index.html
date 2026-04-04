@@ -3,122 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <title>AutoKelas Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
 
 <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<script src="script.js" defer></script>
+
 </head>
 
 <body>
 
-<h1>AutoKelas's Dashboard</h1>
-
+<h1>✨ AutoKelas Dashboard ✨</h1>
 
 <div class="container">
 
-<h2>eLampu</h2>
+  <!-- 🌟 eLampu -->
+  <div class="card">
+    <h2>💡 eLampu</h2>
 
-<div class="row">
+    <div class="status">
+      <span id="lampDot" class="dot off"></span>
+      <span id="lampStatus">OFF</span>
+    </div>
 
-<div class="card">
-<h3>eLampu 1</h3>
+    <button onclick="lampON()">ON</button>
+    <button onclick="lampOFF()">OFF</button>
+  </div>
 
-<div class="status">
-<span id="lamp1dot" class="dot off"></span>
-<span id="lamp1text">OFF</span>
-</div>
+  <!-- 🔌 eSoket -->
+  <div class="card">
+    <h2>🔌 eSoket</h2>
 
-<button onclick="lamp1ON()">ON</button>
-<button onclick="lamp1OFF()">OFF</button>
-<p id="lamp2status">Status: Unknown</p>
+    <div class="status">
+      <span id="socketDot" class="dot off"></span>
+      <span id="socketStatus">OFF</span>
+    </div>
 
-</div>
+    <button onclick="socketON()">ON</button>
+    <button onclick="socketOFF()">OFF</button>
+  </div>
 
-<div class="card">
-<h3>eLampu 2</h3>
+  <!-- 🪪 eKehadiran -->
+  <div class="card attendance">
+    <h2>📋 eKehadiran</h2>
 
-<div class="status">
-<span id="lamp2dot" class="dot off"></span>
-<span id="lamp2text">OFF</span>
-</div>
+    <p><b>Name:</b> <span id="rfidName">-</span></p>
+    <p><b>Date:</b> <span id="rfidDate">-</span></p>
+    <p><b>Time:</b> <span id="rfidTime">-</span></p>
 
-<button onclick="lamp2ON()">ON</button>
-<button onclick="lamp2OFF()">OFF</button>
-<p id="lamp2status">Status: Unknown</p>
-</div>
-
-</div>
-
-
-<h2>eSoket</h2>
-
-<div class="row">
-
-<div class="card">
-<h3>eSoket 1</h3>
-
-<span id="lamp2dot" class="dot off"></span>
-<span id="lamp2text">OFF</span>
-
-<button onclick="soket1ON()">ON</button>
-<button onclick="soket1OFF()">OFF</button>
-<p id="soket1status">Status: Unknown</p>
-</div>
-
-<div class="card">
-<h3>eSoket 2</h3>
-<span id="soket1dot" class="dot off"></span>
-<span id="soket1text">OFF</span>
-
-<button onclick="soket2ON()">ON</button>
-<button onclick="soket2OFF()">OFF</button>
-<p id="soket2status">Status: Unknown</p>
-</div>
+  </div>
 
 </div>
 
-
-<h2>eKehadiran</h2>
-
-<div class="row">
-
-<div class="attendanceCard">
-
-<h3>Reader 1</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Date</th>
-<th>Time</th>
-</tr>
-</thead>
-
-<tbody id="attendance1"></tbody>
-
-</table>
-
-</div>
-
-
-<div class="attendanceCard">
-
-<h3>Reader 2</h3>
-
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Date</th>
-<th>Time</th>
-</tr>
-</thead>
-
-<tbody id="attendance2"></tbody>
-
-</table>
-
-</div>
-
-</div>
+</body>
+</html>

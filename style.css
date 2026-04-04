@@ -1,107 +1,45 @@
-body{
-background:#121212;
-color:white;
-font-family:Arial;
-text-align:center;
+body {
+  font-family: Arial;
+  text-align: center;
+  background: #fdf6ff;
 }
 
-.container{
-width:90%;
-margin:auto;
+h1 {
+  color: #b57edc;
 }
 
-.row{
-display:flex;
-justify-content:center;
-gap:40px;
-margin-bottom:40px;
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-.card{
-background:#1e1e1e;
-padding:20px;
-border-radius:10px;
-width:200px;
-box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 220px;
 }
 
-button{
-width:80px;
-padding:10px;
-margin:5px;
-border:none;
-border-radius:6px;
-background:#3a3a3a;
-color:white;
-cursor:pointer;
+button {
+  margin: 5px;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 10px;
+  background: #b57edc;
+  color: white;
+  cursor: pointer;
 }
 
-button:hover{
-background:#00bcd4;
+.dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
 }
 
-button:hover{
-background:#0097a7;
-}
-
-.attendance{
-margin-top:30px;
-}
-
-table{
-width:60%;
-margin:auto;
-border-collapse:collapse;
-background:#1e1e1e;
-}
-
-th,td{
-padding:12px;
-border:1px solid #333;
-}
-
-th{
-background:#333;
-}
-.attendanceCard{
-background:#1e1e1e;
-padding:20px;
-border-radius:10px;
-width:350px;
-box-shadow:0px 0px 10px rgba(0,0,0,0.5);
-}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:10px;
-}
-
-th,td{
-padding:10px;
-border:1px solid #333;
-}
-
-th{
-background:#333;
-}
-.status{
-margin-bottom:10px;
-font-weight:bold;
-}
-
-.dot{
-height:12px;
-width:12px;
-border-radius:50%;
-display:inline-block;
-margin-right:6px;
-}
-
-.on{
-background:#00ff88;
-}
-
-.off{
-background:#ff4444;
-}
+.on { background: green; }
+.off { background: red; }
